@@ -13,8 +13,9 @@ function App() {
     <BrowserRouter>
      <Routes>
      <Route path="/" element={<SharedLayout />}>
-    <Route index element={ <Homepage /> } />
- </Route>
+     <Route index element={ <Homepage /> } />
+     <Route path="volunteer" element={<VolunteerPage />} />
+     </Route>
      </Routes>
 
     <ToastContainer position="top-center" />
