@@ -25,13 +25,25 @@ const Hero = () => {
       };
 
   return (
-    <Slider {...settings}>
+< Wrapper>
+<Slider {...settings}>
       {card}
     </Slider>
+</Wrapper>
+   
   )
 }
 
 export default Hero
+
+
+/// styles
+
+const Wrapper = styled.section`
+    width:100%;
+
+  
+`
 
 
 

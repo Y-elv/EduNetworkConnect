@@ -5,10 +5,16 @@
     border: 0;
     vertical-align: baseline;
     box-sizing: border-box;
+  
   }
   
   html, body {
   transition: all 0.3s ease; 
+  }
+  body{
+    width:100vw;
+    height:100vh;
+ 
   }
   img{
   width:100%;
@@ -19,6 +25,7 @@
 }
 :root {
     --primary-color: #1f4670;
+    --dark-primary-color: #042649;
     --backgroundColor: #e1e6ec;
     --white: #fff;
 
@@ -31,7 +38,8 @@
     padding:3px;
   }
   .yes-btn:hover{
-    transform: scale(1.2);
+    transform: scale(1.01);
     transition: transform 0.3s ease;
+    background-color: var(--dark-primary-color);
   }
  

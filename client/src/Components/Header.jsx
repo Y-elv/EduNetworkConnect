@@ -40,6 +40,7 @@ export default Header
 //// styles
 const Wrapper = styled.section`
   display:flex;
+  width:100%;
   justify-content:space-around;
   align-items:center;
   background-color:var(--backgroundColor);
