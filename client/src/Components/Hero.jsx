@@ -4,12 +4,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import {availableOpportunities} from "../data"
+import PublicOppoCard from './PublicOppoCard';
+
 
 
 //// each opportunity card
 const card = availableOpportunities.map((opportunity)=>{
-    const {title,id} =  opportunity
-    return <h2 key={id} >{title}</h2>
+    const {id} =  opportunity
+    return <PublicOppoCard key={id} opportunity={opportunity} />
 })
 
 const Hero = () => {
@@ -17,7 +19,7 @@ const Hero = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
       };
