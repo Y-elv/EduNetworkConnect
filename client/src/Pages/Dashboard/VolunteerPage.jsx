@@ -16,6 +16,10 @@ const VolunteerPage = () => {
   const handleSkillsSubmit = ()=>{
     toast.success("Thank you, We will reach out back to you with matching seeker")
   }
+  
+  const handleOtherSupport = ()=>{
+    toast.success("Thank you, We will reach out back to you with matching seeker")
+  }
   return (
     <Wrapper>
       <div>
@@ -94,10 +98,10 @@ const VolunteerPage = () => {
 
           {/* Show other section */}
           {showOthers && (
-            <div>
+            <div className='clarify-others-container' >
               <label>Please specify any other support you would like to offer</label>
               <textarea placeholder='Enter your message...'></textarea>
-              <button className='submit-btn'>Submit</button>
+              <button className='submit-btn continue ' onClick={handleOtherSupport} >Submit</button>
             </div>
           )}
         </div>
@@ -347,6 +351,14 @@ const Wrapper = styled.section`
         /* ... (your existing styles) */
         margin-bottom: 10px;
       }
+    }
+  }
+  .clarify-others-container{
+    border: 1px solid red;
+    textarea{
+      border: 1px solid var(--primary-color);
+      min-width:300px;
+      min-height:50px
     }
   }
 `;
