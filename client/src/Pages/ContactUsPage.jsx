@@ -153,14 +153,16 @@ const Wrapper = styled.section`
     
   }
   .second-sec-form{
-  
-  
-  max-width: 600px;
+    max-width: 600px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
+  }
+  
+  
+
 
   form {
     display: grid;
