@@ -4,6 +4,8 @@ import {BrowserRouter, Routes,Route} from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayout , VolunteerPage,OpportunitiesPage} from './Pages/Dashboard';
+import { ApplicationForm } from './Components';
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
      <Route path="ourWork" element={<OurWorkPage/>} />
      <Route path="contactUs" element={<ContactUsPage />} />
      <Route path="opportunities" element={<OpportunitiesPage />} />
+     <Route path="apply" element={<ApplicationForm />} />
      </Route>
      </Routes>
 

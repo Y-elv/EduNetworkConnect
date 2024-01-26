@@ -1,14 +1,17 @@
 import React from 'react';
 import { EduConnectOpportunities } from "../../data";
 import styled from "styled-components";
+import { useNavigate,Link } from "react-router-dom";
+
 
 const OpportunitiesPage = () => {
   return (
     <Wrapper>
+
       <Heading>Explore Current Opportunities with ECN</Heading>
       <PromoSection>
           <PromoText>Are you in need of financial assistance for school fees?</PromoText>
-          <ApplyButton>Apply Now</ApplyButton>
+          <ApplyButton> <Link to="/apply" >Apply Now </Link> </ApplyButton>
         </PromoSection>
         {/* opportunities */}
         <Heading>Other opportunities</Heading>
@@ -25,7 +28,7 @@ const OpportunitiesPage = () => {
                   <InfoItem>{date}</InfoItem>
                   <InfoItem>{location}</InfoItem>
                 </OpportunityInfo>
-                <ApplyButton>Apply</ApplyButton>
+                <ApplyButton> <Link to="/apply" >Apply</Link></ApplyButton>
               </OpportunityCard>
             );
           })}
@@ -84,6 +87,9 @@ const ApplyButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  a{
+    color:inherit
+  }
 `;
 
 const OpportunitiesList = styled.div`
