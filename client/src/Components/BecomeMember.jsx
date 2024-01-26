@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import RegistrationForm from './RegistrationForm';
 import { useGlobalContext } from '../context';
+import LoginForm from './LoginForm';
+
 
 const BecomeMember = () => {
    /// global context
@@ -70,7 +72,9 @@ console.log("test",volunteerRole);
             </div>
           )}
           {/* volunteer registration form */}
-       {showRegistrationForm && <RegistrationForm/>}   
+       {showRegistrationForm && <RegistrationForm/>}  
+        {/*show login form  */}
+        {showLoginForm && <LoginForm/>}
         </div>
         <div className='box'>
           <button className='yes-btn'>Opportunities</button>

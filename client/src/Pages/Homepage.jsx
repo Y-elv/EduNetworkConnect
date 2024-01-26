@@ -5,8 +5,6 @@ import styled from "styled-components";
 const Homepage = () => {
   return (
     <Wrapper>
-      <Header/>
-       <Hero/>
        <BecomeMember/>
     </Wrapper>
   
