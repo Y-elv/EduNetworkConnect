@@ -14,7 +14,7 @@ const VolunteerPage = () => {
 
   /// utils
   const handleSkillsSubmit = ()=>{
-    
+    toast.success("Thank you, We will reach out back to you with matching seeker")
   }
   return (
     <Wrapper>
