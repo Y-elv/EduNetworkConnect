@@ -71,7 +71,7 @@ const BecomeMember = () => {
           {/* volunteer registration form */}
        {showRegistrationForm && <RegistrationForm/>}  
         {/*show login form  */}
-        {showLoginForm && <LoginForm/>}
+        {showLoginForm && <LoginForm/>} 
         </div>
         <div className='box'>
           <Link className='yes-btn' to="/opportunities" >Opportunities</Link>

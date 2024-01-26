@@ -41,14 +41,7 @@ export const skillsAvailable = [
     courses:["Communication","Leadership"]
   }
 ]
-export const EduConnectOpportunities = [
-   {
-    schoolFees:"Request for School fees"
-  }
-,{
-  Learning:[
- {
-  field:
+export const EduConnectOpportunities = 
   [
     {
       name: "Introduction to Agriculture",
@@ -82,9 +75,8 @@ export const EduConnectOpportunities = [
     },
   ]
  
- },
-   ]
-}
- ]
+
+
+ 
 
 
