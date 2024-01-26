@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import RegistrationForm from './RegistrationForm';
+
 
 const BecomeMember = () => {
     const [showOption, setShowOption] = useState(false);
@@ -12,42 +14,6 @@ const BecomeMember = () => {
       setVolunteerRole(e.target.value);
     };
 
-    //// registration form
-    const RegistrationForm = ()=>{
-        return <div className='registration-form' >
-            <form>
-                {/* full names */}
-                <div className='form-field' >
-            <label>Full names</label>
-            <input type="text" name="" id="" placeholder='Enter your full names' />
-                </div>
-            {/* email */}
-            <div className='form-field' >
-                <label htmlFor="">Email</label>
-                <input type="email" name="" id="" placeholder='Enter your email' />
-            </div>
-               {/* Location */}
-               <div className='form-field' >
-                <label htmlFor="">Location</label>
-                <input type="text" name="" id="" placeholder='Enter your Location' />
-               </div>
-               {/* password */}
-               <div className='form-field' >
-                <label htmlFor="">Password</label>
-                <input type="password" name="" id="" placeholder='Enter password' />
-               </div>
-               
-                <div>
-                    <button className='yes-btn' >Register</button>
-                   <div>If Already have an account? <button className='yes-btn' >Login</button></div>
-                </div>
-
-            </form>
-        </div>
-    }
-
-
-
     //////// testing 
     useEffect(()=>{
 console.log("test",volunteerRole);
@@ -55,11 +21,6 @@ console.log("test",volunteerRole);
   
     return (
       <Wrapper>
-        {/* registration form place*/}
-        {
-            !showRegistrationForm && <RegistrationForm/>
-        }
-
         <div className='box'>
           <button className='yes-btn' onClick={() => setShowOption((prev) => !prev)}>
             Become a Volunteer
@@ -104,9 +65,11 @@ console.log("test",volunteerRole);
                   </div>
                 </div>
               </div>
-              <button className='yes-btn' >Continue</button>
+              <button className='yes-btn' onClick={()=>setShowRegistrationForm((prev)=>!prev)}  >Continue</button>
             </div>
           )}
+          {/* volunteer registration form */}
+       {showRegistrationForm && <RegistrationForm/>}   
         </div>
         <div className='box'>
           <button className='yes-btn'>Opportunities</button>
@@ -148,16 +111,22 @@ const Wrapper = styled.section`
     display:flex;
     align-items:center;
     justify-content:center;
+    z-index: 1000; 
+    .close-regi-form-btn{
+        display:flex;
+        justify-content:center;
+        align-items:center
+    }
     form{
         height:200px;
         display:flex;
         flex-direction:column;
-        align-items:center;
         justify-content:center;
         border:1px solid var(--primary-color);
         background-color:var(  --backgroundColor);
         padding:5px;
-        gap:5px
+        gap:5px;
+       
     }
     .form-field{
         display:flex;

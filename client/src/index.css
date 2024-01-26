@@ -25,6 +25,7 @@
 }
 :root {
     --primary-color: #1f4670;
+    --red: #4a0606;
     --dark-primary-color: #042649;
     --backgroundColor: #e1e6ec;
     --white: #fff;
@@ -42,4 +43,18 @@
     transition: transform 0.3s ease;
     background-color: var(--dark-primary-color);
   }
+  .no-btn{
+    color:var(--white);
+    background-color: var(--red);
+    border-radius: 5px;
+    padding:3px;
+  }
+  .no-btn:hover{
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+
+  }
+
+ 
+
  
