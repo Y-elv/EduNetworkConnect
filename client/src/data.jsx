@@ -24,3 +24,20 @@ export const availableOpportunities = [{
   }
 
 ]
+
+
+////// skills
+export const skillsAvailable = [
+  {
+    field:"Science",
+    courses:["Biology","Chemistry","Geography"]
+  },
+  {
+    field:"Technology",
+    courses:["Networking","Software Dev","Robotics"]
+  },
+  {
+    field:"Social skills",
+    courses:["Communication","Leadership"]
+  }
+]

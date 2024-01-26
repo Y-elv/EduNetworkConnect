@@ -5,12 +5,17 @@ import styled from 'styled-components';
 import { Header, Hero, StripeForm } from '../../Components';
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../../context';
-
+import {skillsAvailable} from "../../data"
 const VolunteerPage = () => {
   const [showPayment, setShowPayment] = useState(false);
   const [showSkills, setShowSkills] = useState(false);
   const [showOthers, setShowOthers] = useState(false);
 
+
+  /// utils
+  const handleSkillsSubmit = ()=>{
+    
+  }
   return (
     <Wrapper>
       <div>
@@ -24,49 +29,67 @@ const VolunteerPage = () => {
         {/* Options to help */}
         <h3>Your Support</h3>
 
-        {/* Raise Fund */}
-        <div>
+{/* supports container */}
+<div className='supports-container' >
+ {/* Raise Fund */}
+ <div className='Funds-section' >
           <button className='yes-btn raise-fund' onClick={() => setShowPayment((prev) => !prev)}>
             <span><BiSolidDollarCircle /></span> Raise Fund
+            <p>We are seeking $545 to cover school fees for 25 students</p>
           </button>
-          <p>We are seeking $545 to cover school fees for 25 students</p>
-        </div>
-
+         
         {/* Stripe Form */}
         {showPayment && (
           <div>
             <StripeForm />
           </div>
         )}
+        </div>
+
 
         {/* Skills */}
-        <div>
+        <div className='skills-section' >
           <button className='yes-btn skills' onClick={() => setShowSkills((prev) => !prev)}>
             Skills
+            <p>Help education seekers by sharing your skills with them</p>
           </button>
-          <p>Help education seekers by sharing your skills with them</p>
+        
 
           {/* Display type of skills */}
           {showSkills && (
-            <div>
-              <ul>
-                <h4>Science</h4>
-                <li>Biology</li>
-                <li>Chemistry</li>
-              </ul>
-              <ul>
-                <h4>Computer</h4>
-                <li>Programming</li>
-                <li>Robotics</li>
-              </ul>
+          <div>
+            <div className='skill-cards-container' >
+              {
+                skillsAvailable.map((skill,index)=>{
+                /// destructuring 
+                return <ul key={index} className='skill-card'  >
+                    <h4>{skill?.field}</h4>
+                    {skill?.courses?.map((course,index)=>{
+                     return  <div key={index} className='courses-card'  >
+                         <input type="checkbox" name="" id="" />
+                        <li>{course}</li>
+                      </div>
+                    })}
+                  </ul>
+                })
+              }
+              
             </div>
+            
+             {/* Continue */}
+        <button className='yes-btn continue' onClick={handleSkillsSubmit} >Continue</button>
+             </div>
+            
           )}
+          
+
         </div>
 
         {/* Other */}
-        <div>
+        <div className='others-section' >
           <button className='yes-btn other' onClick={() => setShowOthers((prev) => !prev)}>
             Other
+            <p>If you have any other thing you would like to support with, Please specify it</p>
           </button>
 
           {/* Show other section */}
@@ -78,9 +101,10 @@ const VolunteerPage = () => {
             </div>
           )}
         </div>
+</div>
+       
 
-        {/* Continue */}
-        <button className='yes-btn continue'>Continue</button>
+       
       </div>
     </Wrapper>
   );
@@ -120,13 +144,19 @@ const Wrapper = styled.section`
     }
   }
 
-  h3 {
-    margin-top: 20px;
+  .supports-container{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center
   }
+ 
 
   div > div,
   div > button {
     margin-top: 10px;
+    width:100%
   }
 
   div > p {
@@ -152,8 +182,7 @@ const Wrapper = styled.section`
   /* Specific button styles */
   .raise-fund,
   .skills,
-  .other,
-  .continue {
+  .other{
     background-color: var(--primary-color);
     color: #fff;
     padding: 10px 20px;
@@ -161,5 +190,163 @@ const Wrapper = styled.section`
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+  }
+  .continue {
+    background-color:green;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  /* New styles for skill cards */
+  .skill-cards-container {
+    display: flex;
+   overflow-x:auto;
+   border: 1px solid var(--primary-color);
+   border-radius:5px
+  }
+
+  .skill-card {
+    background-color: #fff;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    min-width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    .courses-card {
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-right: 10px;
+      }
+
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+    }
+  }
+  /* New styles for Funds-section */
+  .Funds-section {
+    .raise-fund {
+      /* ... (your existing styles) */
+      padding: 15px 20px;
+      position: relative;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--primary-color);
+      }
+
+      span {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--text-color);
+      }
+    }
+  }
+
+  /* New styles for Skills-section */
+  .skills-section {
+    .skills {
+      /* ... (your existing styles) */
+      padding: 15px 20px;
+      position: relative;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--primary-color);
+      }
+
+      span {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--text-color);
+      }
+    }
+
+    /* Additional styles for skill cards */
+    .skill-cards-container {
+      /* ... (your existing styles) */
+      overflow-x: auto;
+      padding: 10px;
+      margin-top: 15px;
+    }
+
+    .skill-card {
+      /* ... (your existing styles) */
+      min-width: 250px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+      .courses-card {
+        /* ... (your existing styles) */
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  /* New styles for Others-section */
+  .others-section {
+    .other {
+      /* ... (your existing styles) */
+      padding: 15px 20px;
+      position: relative;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: var(--primary-color);
+      }
+
+      span {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 14px;
+        color: var(--text-color);
+      }
+    }
+
+    /* Additional styles for the form */
+    div {
+      margin-top: 15px;
+      label {
+        /* ... (your existing styles) */
+        margin-bottom: 5px;
+      }
+
+      textarea {
+        /* ... (your existing styles) */
+        margin-bottom: 10px;
+      }
+    }
   }
 `;
