@@ -1,15 +1,20 @@
 import React from 'react'
-import { Header } from '../Components'
-
+import { Header,Hero,BecomeMember } from '../Components'
+import styled from "styled-components";
 
 const Homepage = () => {
   return (
-    <>
-      <Header/>
-    <div>Homepage</div>
-    </>
+    <Wrapper>
+       <BecomeMember/>
+    </Wrapper>
   
   )
 }
 
 export default Homepage
+
+///// styles
+const Wrapper = styled.section`
+  border:1px solid blue;
+  width:100%
+`
