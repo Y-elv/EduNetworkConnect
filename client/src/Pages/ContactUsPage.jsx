@@ -31,9 +31,7 @@ const ContactUsPage = () => {
   };
   return (
     <Wrapper>
-      <div className="header">
-      <Header/>
-      </div>
+     
       <div className="first-sec">
         <div className="first-sec-left">
         
@@ -118,6 +116,7 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
     gap:2rem;
+    margin-top:40px;
   }
 
   .first-sec-left {

@@ -10,9 +10,7 @@ import studentHelp from "../../src/assets/images/studenthelp.jpg"
 const AboutUsPage = () => {
   return (
     <Wrapper>
-      <div className="header">
-      <Header/>
-      </div>
+    
       <div className="all-sec">
         <div className="first-sec">
           <div className="first-sec-left">
@@ -100,6 +98,9 @@ const Wrapper = styled.section`
   display:flex;
   flex-direction:column;
   gap:4rem;
+  .all-sec{
+    margin-top:30px;
+  }
   .first-sec {
     
     width: 100%;
