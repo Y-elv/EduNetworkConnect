@@ -78,8 +78,7 @@ const BecomeMember = () => {
           <small>Check available opportunities</small>
         </div>
         <div className='box'>
-          <button className='yes-btn'>Request support</button>
-          <small>Raise a question</small>
+          <button className='yes-btn'> <Link to="/request">Request Support</Link> </button>
         </div>
       </Wrapper>
     );
@@ -88,6 +87,11 @@ const BecomeMember = () => {
 export default BecomeMember;
 
 const Wrapper = styled.section`
+button{
+  a{
+    color:inherit
+  }
+}
   margin-top: 25px;
   padding: 10px;
   background-color: var(--backgroundColor);
