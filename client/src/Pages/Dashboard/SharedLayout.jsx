@@ -6,7 +6,7 @@ const SharedLayout = () => {
   return (
     <Wrapper>
    <Header/>
-   <Hero/>
+   {/* <Hero/> */}
     <Outlet/>
   </Wrapper>
   )
