@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import RegistrationForm from './RegistrationForm';
-
+import { useGlobalContext } from '../context';
 
 const BecomeMember = () => {
+   /// global context
+   const {test} = useGlobalContext();
     const [showOption, setShowOption] = useState(false);
     const [volunteerRole, setVolunteerRole] = useState('');
     const [showRegistrationForm, setShowRegistrationForm] = useState(false);
@@ -23,7 +25,7 @@ console.log("test",volunteerRole);
       <Wrapper>
         <div className='box'>
           <button className='yes-btn' onClick={() => setShowOption((prev) => !prev)}>
-            Become a Volunteer
+            Become a Volunteer 
           </button>
           {!showOption && (
             <div className='volunteer-options-container'>
