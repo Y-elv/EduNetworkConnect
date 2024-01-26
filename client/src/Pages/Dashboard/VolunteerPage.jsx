@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Hero } from '../../Components'
+import { Header, Hero ,StripeForm} from '../../Components'
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../../context';
 import { BiSolidDollarCircle } from "react-icons/bi";
@@ -14,9 +14,8 @@ const VolunteerPage = () => {
    {/* message */}
    <div className='about-user-container' >
    <h3>Please tell us a little bit about your self</h3>
-   <textArea>
+   <textarea></textarea>
 
-</textArea>
 <button className='yes-btn' >Submit</button>
    </div>
     
@@ -41,6 +40,8 @@ const VolunteerPage = () => {
     {/* continue */}
  
  <button className='yes-btn'  >Continue</button>
+ {/* stripe form */}
+ <StripeForm/>
     
          </div>
     </Wrapper>
@@ -60,7 +61,7 @@ margin-top:25px;
   justify-content:center;
   align-items:center
 }
-textArea{
+textarea{
   border: 1px solid black;
   min-width:300px;
   min-height:20px;
