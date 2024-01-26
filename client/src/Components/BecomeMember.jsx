@@ -91,12 +91,13 @@ console.log("test",volunteerRole);
 export default BecomeMember;
 
 const Wrapper = styled.section`
-  margin-top: 25px;
+  margin: 25px 0px 20px 0px;
   padding: 10px;
   background-color: var(--backgroundColor);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 5px;
+  
 
   .box {
     display: flex;

@@ -15,7 +15,7 @@ export default TestimonyCard;
 ////////// styles
 const Card = styled.div`
   background-color: #fff;
-  padding-top: 20px;
+  padding-top: 10px;
   border-radius: 8px;
   margin: 10px;
   text-align: center;

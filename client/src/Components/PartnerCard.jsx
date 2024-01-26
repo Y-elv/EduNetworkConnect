@@ -20,7 +20,8 @@ const PartnerCard = ({ logoSrc, partnerName }) => {
   text-align: center;
 
   img {
-    width: 100%; /* Ensure the image takes the full width of the card */
+    width: 20vw;
+    height:20vh; /* Ensure the image takes the full width of the card */
     border-radius: 5px;
     margin-bottom: 10px;
   }
