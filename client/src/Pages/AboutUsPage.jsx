@@ -97,6 +97,9 @@ export default AboutUsPage;
 //// styles
 const Wrapper = styled.section`
   font-family:'Open Sans', sans-serif;
+  display:flex;
+  flex-direction:column;
+  gap:4rem;
   .first-sec {
     
     width: 100%;
