@@ -1,9 +1,12 @@
 import React ,{useState}from 'react'
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
+import { useGlobalContext } from '../context';
 
 
 const RegistrationForm = () => {
+    /// global context
+    const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm} = useGlobalContext();
 
     //// registration form data
     const [formData, setFormData,] = useState({
@@ -29,6 +32,11 @@ const RegistrationForm = () => {
       /// handle submit
       toast.success(`${formData?.name},Account successfully created`)
       console.log("final data",formData)
+
+      /// close registration form
+      setShowRegistrationForm(false)
+      // if registered show login form
+      setShowLoginForm(true)
     }
 
   return (

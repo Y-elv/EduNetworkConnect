@@ -10,12 +10,13 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const AppContext = ({ children }) => {
 
 //////////////////////all state/////////////
-    ////////auth state
-    const [test,setTest] = useState("hello context")
+const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+//// state to track if the user has registered so that he can log in
+const [showLoginForm,setShowLoginForm] = useState(false)
 
 /////////////////////main return
   return (
-    <GlobalContext.Provider value={{test}}>
+    <GlobalContext.Provider value={{showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm}}>
       {children}
     </GlobalContext.Provider>
   );

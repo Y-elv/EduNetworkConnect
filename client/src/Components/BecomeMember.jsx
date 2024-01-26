@@ -5,11 +5,10 @@ import { useGlobalContext } from '../context';
 
 const BecomeMember = () => {
    /// global context
-   const {test} = useGlobalContext();
+   const {showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm} = useGlobalContext();
     const [showOption, setShowOption] = useState(false);
     const [volunteerRole, setVolunteerRole] = useState('');
-    const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  
+
 
     //// handle handleVolunteerOnChange
     const handleVolunteerOnChange = (e) => {
