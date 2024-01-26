@@ -64,7 +64,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Adjust the gap between cards */
+    gap: 4rem; /* Adjust the gap between cards */
     height: 100%; /* Full height of the container */
   }
   .partnership{

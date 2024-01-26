@@ -30,5 +30,6 @@ const PartnerCard = ({ logoSrc, partnerName }) => {
     margin: 0;
     font-size: 14px;
     color: #555; /* Set your desired text color */
+    font-weight: bold; /* Make the text bold */
   }
 `;
