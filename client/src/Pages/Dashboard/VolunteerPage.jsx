@@ -29,7 +29,7 @@ const VolunteerPage = () => {
     {/* Skills */}
     <div>
     <input type="checkbox" name="" id="" /> {""}
-    <button className='yes-btn'style={{marginBottom:"10px"}} >Free Tutoring</button>
+    <button className='yes-btn'style={{marginBottom:"10px"}} >Skills</button>
     </div>
     {/* Other */}
     <div>
