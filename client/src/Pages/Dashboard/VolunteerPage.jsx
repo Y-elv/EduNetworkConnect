@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Header, Hero ,StripeForm} from '../../Components'
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../../context';
@@ -7,9 +7,12 @@ import styled from 'styled-components';
 
 
 const VolunteerPage = () => {
+
+  const [showPayment,setShowPayment] = useState(false)
+
   return (
     <Wrapper>
-    <div  >
+    <div>
     
    {/* message */}
    <div className='about-user-container' >
@@ -23,9 +26,18 @@ const VolunteerPage = () => {
     <h3>Your support</h3>
     {/* Funds */}
     <div>
-    <input type="checkbox" name="" id="" />
-     {" "} <button className='yes-btn'  > <span><BiSolidDollarCircle /></span> Raise fund</button> <br/>
+    <button className='yes-btn' onClick={()=>setShowPayment((prev)=>!prev)}  > <span><BiSolidDollarCircle /></span> Raise fund</button> <br/>
+    <p> We are seeking $ 545 to cover school fees of 25 students</p>
     </div>
+     {/* stripe form */}
+     {
+      showPayment &&  <div>
+
+      <StripeForm/>
+   
+    </div>
+     }
+
     {/* Skills */}
     <div>
     <input type="checkbox" name="" id="" /> {""}
@@ -39,10 +51,8 @@ const VolunteerPage = () => {
     
     {/* continue */}
  
- <button className='yes-btn'  >Continue</button>
- {/* stripe form */}
- <StripeForm/>
-    
+ <button className='yes-btn' >Continue</button>
+
          </div>
     </Wrapper>
   )

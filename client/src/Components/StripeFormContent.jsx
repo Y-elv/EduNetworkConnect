@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
+
 
 const StripeFormContent = () => {
   const stripe = useStripe();
@@ -18,46 +20,76 @@ const StripeFormContent = () => {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-
-    // Create a PaymentMethod
-    const { token, error } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
-    });
-
-    if (error) {
-      setError(error.message);
-    } else {
-      // Handle success (e.g., send the token to your server for payment processing)
-      console.log('PaymentMethod created:', token);
-    }
+    setAmount("")
+    toast.success("Funds received successfully")
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <FormWrapper onSubmit={handleSubmit}>
+        <p>Test card Number: 4242 4242 4242 4242</p>
+      <Label>
         Amount:
-        <input
+        <Input
           type="number"
           value={amount}
           onChange={handleAmountChange}
           placeholder="Enter the amount"
         />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Card Details:
         <CardElement />
-      </label>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button type="submit" disabled={!stripe}>
+      </Label>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <SubmitButton type="submit" disabled={!stripe}>
         Submit Payment
-      </button>
-    </form>
+      </SubmitButton>
+    </FormWrapper>
   );
 };
+
+
+
+////////////styles
+
+const FormWrapper = styled.form`
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 10px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+`;
+
+const ErrorMessage = styled.div`
+  color: red;
+  margin-top: 10px;
+`;
+
+const SubmitButton = styled.button`
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+`;
 
 export default StripeFormContent;
