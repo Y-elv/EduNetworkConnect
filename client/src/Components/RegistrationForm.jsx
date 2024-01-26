@@ -1,5 +1,6 @@
 import React ,{useState}from 'react'
 import { IoCloseSharp } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 
 const RegistrationForm = () => {
@@ -26,6 +27,7 @@ const RegistrationForm = () => {
     const handleSubmit = (e)=>{
       e.preventDefault()
       /// handle submit
+      toast.success(`${formData?.name},Account successfully created`)
       console.log("final data",formData)
     }
 
