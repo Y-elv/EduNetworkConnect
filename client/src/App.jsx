@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { Homepage } from './Pages'
-
+import { Homepage, AboutUsPage , OurWorkPage ,ContactUsPage  } from './Pages'
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayout , VolunteerPage} from './Pages/Dashboard';
+
+
 
 
 function App() {
@@ -14,7 +15,10 @@ function App() {
      <Routes>
      <Route path="/" element={<SharedLayout />}>
      <Route index element={ <Homepage /> } />
+     <Route path="about" element={<AboutUsPage/>} />
      <Route path="volunteer" element={<VolunteerPage />} />
+     <Route path="ourWork" element={<OurWorkPage/>} />
+     <Route path="contactUs" element={<ContactUsPage />} />
      </Route>
      </Routes>
 
