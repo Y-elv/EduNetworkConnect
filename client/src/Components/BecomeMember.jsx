@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import RegistrationForm from './RegistrationForm';
 import { useGlobalContext } from '../context';
 import LoginForm from './LoginForm';
+import { useNavigate,Link } from "react-router-dom";
 
 
 const BecomeMember = () => {
@@ -17,10 +18,6 @@ const BecomeMember = () => {
       setVolunteerRole(e.target.value);
     };
 
-    //////// testing 
-    useEffect(()=>{
-console.log("test",volunteerRole);
-    },[volunteerRole])
   
     return (
       <Wrapper>
@@ -77,7 +74,7 @@ console.log("test",volunteerRole);
         {showLoginForm && <LoginForm/>}
         </div>
         <div className='box'>
-          <button className='yes-btn'>Opportunities</button>
+          <Link className='yes-btn' to="/opportunities" >Opportunities</Link>
           <small>Check available opportunities</small>
         </div>
         <div className='box'>

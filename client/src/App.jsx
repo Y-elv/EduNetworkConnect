@@ -3,7 +3,7 @@ import { Homepage, AboutUsPage , OurWorkPage ,ContactUsPage  } from './Pages'
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { SharedLayout , VolunteerPage} from './Pages/Dashboard';
+import { SharedLayout , VolunteerPage,OpportunitiesPage} from './Pages/Dashboard';
 
 
 
@@ -19,6 +19,7 @@ function App() {
      <Route path="volunteer" element={<VolunteerPage />} />
      <Route path="ourWork" element={<OurWorkPage/>} />
      <Route path="contactUs" element={<ContactUsPage />} />
+     <Route path="opportunities" element={<OpportunitiesPage />} />
      </Route>
      </Routes>
 

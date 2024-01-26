@@ -41,3 +41,50 @@ export const skillsAvailable = [
     courses:["Communication","Leadership"]
   }
 ]
+export const EduConnectOpportunities = [
+   {
+    schoolFees:"Request for School fees"
+  }
+,{
+  Learning:[
+ {
+  field:
+  [
+    {
+      name: "Introduction to Agriculture",
+      about: "Exploring Sustainable Farming Practices",
+      date: "02 Feb - 12 Feb 2024",
+      location: "Rwanda",
+    },
+    {
+      name: "Community Health Workshop",
+      about: "Promoting Healthcare in Local Communities",
+      date: "15 Mar - 25 Mar 2024",
+      location: "Kenya",
+    },
+    {
+      name: "Entrepreneurship and Small Business",
+      about: "Building Business Skills for Local Enterprises",
+      date: "10 Apr - 20 Apr 2024",
+      location: "Bangladesh",
+    },
+    {
+      name: "IT Essentials",
+      about: "Fundamentals of Information Technology",
+      date: "05 May - 15 May 2024",
+      location: "Nepal",
+    },
+    {
+      name: "Biology Foundations",
+      about: "Understanding Basics of Biological Sciences",
+      date: "20 Jun - 30 Jun 2024",
+      location: "Mozambique",
+    },
+  ]
+ 
+ },
+   ]
+}
+ ]
+
+
