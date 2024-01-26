@@ -2,6 +2,7 @@ import React from 'react'
 import { Header, Hero } from '../../Components'
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../../context';
+import { BiSolidDollarCircle } from "react-icons/bi";
 import styled from 'styled-components';
 
 
@@ -24,20 +25,22 @@ const VolunteerPage = () => {
     {/* Funds */}
     <div>
     <input type="checkbox" name="" id="" />
-     {" "} <button className='yes-btn' style={{marginBottom:"10px"}} >Raise fund</button> <br/>
+     {" "} <button className='yes-btn'  > <span><BiSolidDollarCircle /></span> Raise fund</button> <br/>
     </div>
     {/* Skills */}
     <div>
     <input type="checkbox" name="" id="" /> {""}
-    <button className='yes-btn'style={{marginBottom:"10px"}} >Skills</button>
+    <button className='yes-btn' >Skills</button>
     </div>
     {/* Other */}
     <div>
     <input type="checkbox" name="" id="" /> {""}
-    <button className='yes-btn' >Other</button>
+    <button className='yes-btn'  >Other</button>
     </div>
     
+    {/* continue */}
  
+ <button className='yes-btn'  >Continue</button>
     
          </div>
     </Wrapper>
