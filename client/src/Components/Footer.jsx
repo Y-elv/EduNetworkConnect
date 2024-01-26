@@ -33,7 +33,7 @@ const Wrapper = styled.section`
   /* Footer styles */
   footer {
     font-family: "Arial", sans-serif;
-    background-color: #f0f0f0; /* Set your desired background color */
+    background-color:var(--backgroundColor); 
     padding: 20px;
     text-align: center;
     font-size: 14px;
