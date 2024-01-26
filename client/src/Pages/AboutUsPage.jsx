@@ -2,11 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import student from "../../src/assets/images/student.jpg";
 import Card from "../Components/card"
+import volunteer from "../../src/assets/images/volunteer.jpg"
+import { Header } from '../Components'
+import view from "../../src/assets/images/view.jpg"
+import studentHelp from "../../src/assets/images/studenthelp.jpg"
 
 const AboutUsPage = () => {
   return (
     <Wrapper>
-      <div className="header"></div>
+      <div className="header">
+      <Header/>
+      </div>
       <div className="all-sec">
         <div className="first-sec">
           <div className="first-sec-left">
@@ -65,7 +71,21 @@ const AboutUsPage = () => {
           </div>
         </div>
         <div className="third-sec">
-         <Card/>
+         <Card
+         name="SUPPORT"
+         img={volunteer}
+         button="Support"
+         />
+         <Card
+         name="VIEW ORGANIZATION PROFILES"
+         img={view}
+         button="View"
+         />
+         <Card
+         name="SEEK A HELP"
+         img={studentHelp}
+         button="Help"
+         />
         </div>
       </div>
     </Wrapper>
@@ -76,15 +96,17 @@ export default AboutUsPage;
 
 //// styles
 const Wrapper = styled.section`
+  font-family:'Open Sans', sans-serif;
   .first-sec {
-    border: 1px solid red;
+    
     width: 100%;
     height: 30%;
     display: flex;
     flex-direction: row;
   }
+
   .first-sec-left {
-    border: 1px solid red;
+    
     width: 55%;
     color: white;
     background-color: var(--primary-color);
@@ -94,28 +116,62 @@ const Wrapper = styled.section`
     justify-content: center;
     padding: 0px 30px;
   }
-  .first-sec-right {
-    border: 1px solid red;
-    width: 45%;
+
+  .first-sec-left h1 {
+    font-size: 2rem; /* Set your desired font size */
   }
+
+  .first-sec-left p {
+    font-size: 1.2rem; /* Set your desired font size */
+  }
+
+  .first-sec-right {
+    
+    width: 45%;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .first-sec-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .all-sec {
     display: flex;
     flex-direction: column;
     gap: 4rem;
   }
+
   .second-sec {
-    border: 1px solid black;
-    width: 100%;
-    display:flex;
-    padding:40px
     
+    width: 100%;
+    display: flex;
+    padding: 40px;
   }
+
   .second-sec-contents {
-    border: 1px solid black;
+   
     width: 100%;
-    display:flex;
-    flex-direction:column;
-    gap:2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .second-sec-contents h1 {
+    font-size: 2rem; /* Set your desired font size */
+  }
+
+  .second-sec-contents p {
+    font-size: 1.2rem; /* Set your desired font size */
+  }
+
+  .third-sec {
+    display: flex;
+    flex-direction: row;
     
+    justify-content: space-around;
   }
 `;
