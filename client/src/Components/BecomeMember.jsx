@@ -104,7 +104,7 @@ const Wrapper = styled.section`
   }
 
   .volunteer-options-container {
-    border: 1px solid var(--primary-color);
+   border: 1px solid var(--primary-color);
     margin-top: 5px;
   }
   .registration-form{
