@@ -106,9 +106,61 @@ const Wrapper = styled.section`
   }
 
   .volunteer-options-container {
-   border: 1px solid var(--primary-color);
-    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 20px;
+    
+  
+
+    label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .options-wrapper {
+      display: flex;
+      gap: 10px;
+      border: 1px solid red;
+    
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+        border: 1px solid var(--primary-color);
+    
+        input {
+          margin-bottom: 5px;
+          font-size: 1rem;
+        }
+    
+        span {
+          font-size: 1.7rem;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .yes-btn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid var(--primary-color); /* Add a border for a button-like appearance */
+      background-color: transparent;
+      color: white; /* Text color */
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+    }
   }
+
   .registration-form{
     background-color:#000000c5;
     position: absolute;
