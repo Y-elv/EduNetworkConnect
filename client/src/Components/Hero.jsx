@@ -40,9 +40,9 @@ export default Hero
 /// styles
 
 const Wrapper = styled.section`
-    width:100%;
+margin:0 auto;
+    max-width:800px
 
-  
 `
 
 

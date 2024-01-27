@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components";
 
 import { useGlobalContext } from '../context';
@@ -7,13 +7,15 @@ import { addUserToLocalStorage ,removeUserFromLocalStorage} from '../utils/local
 import { Link,useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const {auth} = useGlobalContext();
+  const {auth,setAuth} = useGlobalContext();
   const navigate = useNavigate();
   const HandleLogout = ()=>{
     removeUserFromLocalStorage();
+    setAuth("")
     toast.success("log out successfully")
    navigate('/');
   }
+
 
   return (
     <Wrapper>

@@ -6,7 +6,7 @@ const SharedLayout = () => {
   return (
     <Wrapper>
    <Header/>
-   {/* <Hero/> */}
+   <Hero/>
     <Outlet/>
   </Wrapper>
   )
@@ -17,6 +17,6 @@ export default SharedLayout
 
 //////// styles
 const Wrapper = styled.main`
-  border:1px solid green;
+  
 
 `

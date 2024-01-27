@@ -39,12 +39,14 @@ const LoginForm = () => {
         // console.log("storage email",auth?.formData?.email)
         // console.log("storage data",auth)
         toast.success(`Welcome ${auth?.formData?.name}`)
+        setShowLoginForm(false)
        }
        else{
         // console.log("current email",formData.email)
         // console.log("storage email",auth.formData.email)
         // console.log("storage data",auth)
         toast.error("Invalid details")
+        setShowLoginForm(false)
        }
       //  toast.success(`Successfully login`)
        // console.log("login data",formData)

@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { SharedLayout , VolunteerPage,OpportunitiesPage} from './Pages/Dashboard';
 import { ApplicationForm, NewRequest,EventApplicationForm } from './Components';
+import { useGlobalContext } from './context';
 
 
 
@@ -12,11 +13,13 @@ import { ApplicationForm, NewRequest,EventApplicationForm } from './Components';
 
 
 function App() {
+  const {auth,setAuth} = useGlobalContext();
 /// main return
   return (
     <BrowserRouter>
      <Routes>
      <Route path="/" element={<SharedLayout />}>
+      {auth?.volunteerRole ?    <Route index element={ <VolunteerPage /> } /> :    <Route index element={ <Homepage /> } /> }
      <Route index element={ <Homepage /> } />
      <Route path="about" element={<AboutUsPage/>} />
      <Route path="volunteer" element={<VolunteerPage />} />
