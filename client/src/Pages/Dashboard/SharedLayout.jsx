@@ -18,6 +18,6 @@ export default SharedLayout
 
 //////// styles
 const Wrapper = styled.main`
-  border:1px solid green;
+  
 
 `
