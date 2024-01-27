@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
-
+import { getUserFromLocalStorage, removeUserFromLocalStorage } from "./utils/localStorage";
 
 
 const GlobalContext = createContext();
@@ -8,7 +8,8 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
-
+ ////////auth state
+ const [auth,setAuth] = useState(getUserFromLocalStorage())
 //////////////////////all state/////////////
 const [showRegistrationForm, setShowRegistrationForm] = useState(false);
 //// state to track if the user has registered so that he can log in

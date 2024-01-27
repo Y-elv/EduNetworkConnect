@@ -2,6 +2,7 @@ import React ,{useState}from 'react'
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../context';
+import { addUserToLocalStorage } from '../utils/localStorage';
 
 
 const RegistrationForm = () => {
@@ -32,6 +33,7 @@ const RegistrationForm = () => {
       /// handle submit
       toast.success(`${formData?.name},Account successfully created`)
       console.log("final data",formData)
+      addUserToLocalStorage(formData);
 
       /// close registration form
       setShowRegistrationForm(false)
