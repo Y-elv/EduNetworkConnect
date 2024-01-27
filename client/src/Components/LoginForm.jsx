@@ -38,12 +38,12 @@ const LoginForm = () => {
 
       <CenteredFormFields>
         <FormField>
-          <InputLabel>Email</InputLabel>
+          <InputLabel>Email:</InputLabel>
           <InputField type="email" name="email" value={formData.email} onChange={handleFormDataChange} placeholder="Enter your email" />
         </FormField>
 
         <FormField>
-          <InputLabel>Password</InputLabel>
+          <InputLabel>Password:</InputLabel>
           <InputField type="password" name="password" value={formData.password} onChange={handleFormDataChange} placeholder="Enter password" />
         </FormField>
       </CenteredFormFields>
