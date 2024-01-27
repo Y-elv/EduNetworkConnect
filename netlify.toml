@@ -1,4 +1,11 @@
-base = "client"
-command = "npm run build"
-publish = "client/dist"  
-functions = "client/netlify/functions"
+[build]
+  base = "client"
+  command = "npm run build"
+  publish = "client/dist"
+
+[functions]
+  directory = "client/netlify/functions"
+  external_node_modules = [
+    "module-one",
+    "module-two"
+  ]
