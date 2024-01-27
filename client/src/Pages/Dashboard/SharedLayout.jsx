@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Header, Hero } from "../../Components";
+import { Header, Hero,Footer } from "../../Components";
 import styled from "styled-components";
 const SharedLayout = () => {
   return (
@@ -8,6 +8,7 @@ const SharedLayout = () => {
    <Header/>
    <Hero/>
     <Outlet/>
+    <Footer />
   </Wrapper>
   )
 }
