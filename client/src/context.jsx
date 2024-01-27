@@ -15,6 +15,17 @@ const [showRegistrationForm, setShowRegistrationForm] = useState(false);
 //// state to track if the user has registered so that he can log in
 const [showLoginForm,setShowLoginForm] = useState(false)
 
+//// getting date of user
+useEffect(()=>{
+setAuth(getUserFromLocalStorage())
+},[])
+useEffect(()=>{
+setAuth(getUserFromLocalStorage())
+},[showRegistrationForm])
+/// testing
+useEffect(()=>{
+  console.log("here is auth",auth)
+},[auth])
 /////////////////////main return
   return (
     <GlobalContext.Provider value={{showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm}}>
