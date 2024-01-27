@@ -12,8 +12,12 @@ const LoginForm = () => {
         password:"",
     });
      /// global context
-     const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm} = useGlobalContext();
+     const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm, auth} = useGlobalContext();
 
+     const disableLoginAndShowRegi = ()=>{
+      setShowRegistrationForm(true)
+      setShowLoginForm(false)
+    }
   
   
       /// handle handleForm data change
@@ -27,10 +31,24 @@ const LoginForm = () => {
        /// handle submit
     const handleSubmit = (e)=>{
         e.preventDefault()
-        /// handle submit
-        toast.success(`Successfully login`)
-        console.log("login data",formData)
+       // check if email exist on local storage
+       if(formData.email === auth.formData.email)
+       {
         navigate("/volunteer")
+        // console.log("current email",formData.email)
+        // console.log("storage email",auth?.formData?.email)
+        // console.log("storage data",auth)
+        toast.success(`Welcome ${auth?.formData?.name}`)
+       }
+       else{
+        // console.log("current email",formData.email)
+        // console.log("storage email",auth.formData.email)
+        // console.log("storage data",auth)
+        toast.error("Invalid details")
+       }
+      //  toast.success(`Successfully login`)
+       // console.log("login data",formData)
+    
   
       }
   return (
@@ -51,7 +69,7 @@ const LoginForm = () => {
                
                 <div>
                     <button className='yes-btn' type='submit'  >Login</button>
-                   <div>Don't have an account? <button className='yes-btn' >Create Account</button></div>
+                   <div>Don't have an account? <button className='yes-btn' onClick={ disableLoginAndShowRegi} >Create Account</button></div>
                 </div>
 
             </form>

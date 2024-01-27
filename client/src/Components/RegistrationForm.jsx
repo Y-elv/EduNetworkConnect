@@ -18,7 +18,10 @@ const RegistrationForm = () => {
       location:""
   });
 
-
+const disableRegiAndShowLogin = ()=>{
+  setShowRegistrationForm(false)
+  setShowLoginForm(true)
+}
     /// handle handleForm data change
     const handleFormDataChange = (e) => {
       setFormData({
@@ -30,6 +33,11 @@ const RegistrationForm = () => {
     /// handle submit
     const handleSubmit = (e)=>{
       e.preventDefault()
+      if(!formData.name || !formData.email || !formData.password )
+      {
+        toast.warning(`Please provide valid value to create account`)
+        return
+      }
       /// handle submit
       toast.success(`${formData?.name},Account successfully created`)
       console.log("final data",formData)
@@ -91,7 +99,7 @@ const RegistrationForm = () => {
                
                 <div>
                     <button className='yes-btn' type='submit'  >Register</button>
-                   <div>If Already have an account? <button className='yes-btn' >Login</button></div>
+                   <div>If Already have an account? <button className='yes-btn' onClick={disableRegiAndShowLogin}  >Login</button></div>
                 </div>
 
             </form>

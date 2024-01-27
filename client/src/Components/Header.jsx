@@ -1,8 +1,20 @@
 import React from 'react'
 import styled from "styled-components";
-import { useNavigate,Link } from "react-router-dom";
+
+import { useGlobalContext } from '../context';
+import { toast } from 'react-toastify';
+import { addUserToLocalStorage ,removeUserFromLocalStorage} from '../utils/localStorage';
+import { Link,useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const {auth} = useGlobalContext();
+  const navigate = useNavigate();
+  const HandleLogout = ()=>{
+    removeUserFromLocalStorage();
+    toast.success("log out successfully")
+   navigate('/');
+  }
+
   return (
     <Wrapper>
       {/* logo container */}
@@ -29,7 +41,7 @@ const Header = () => {
 
       {/* Login / notification */}
       <div>
-        <button className='yes-btn' >Login</button>
+      {auth?.formData?.name ?<p>Hi,{auth?.formData?.name} <button className='yes-btn' onClick={HandleLogout} >Logout</button></p>  : <button className='yes-btn' >Login</button>}  
       </div>
       </Wrapper>
   )
