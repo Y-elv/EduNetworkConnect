@@ -52,7 +52,7 @@ export default Homepage
 
 ///// styles
 const Wrapper = styled.section`
-  border: 1px solid red;
+  
   width: 100%;
   height: 150vh;
   display: flex;
