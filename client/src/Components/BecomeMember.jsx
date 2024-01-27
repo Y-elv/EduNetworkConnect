@@ -78,7 +78,7 @@ const BecomeMember = () => {
           <small>Check available opportunities</small>
         </div>
         <div className='box'>
-          <button className='yes-btn'> <Link to="/request">Request Support</Link> </button>
+          <Link className='yes-btn' to="/request"> Request Support </Link>
         </div>
       </Wrapper>
     );

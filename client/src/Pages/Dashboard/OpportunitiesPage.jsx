@@ -28,7 +28,7 @@ const OpportunitiesPage = () => {
                   <InfoItem>{date}</InfoItem>
                   <InfoItem>{location}</InfoItem>
                 </OpportunityInfo>
-                <ApplyButton> <Link to="/apply" >Apply</Link></ApplyButton>
+                <ApplyButton> <Link to="/event" >Apply</Link></ApplyButton>
               </OpportunityCard>
             );
           })}
