@@ -5,7 +5,7 @@ import Card from "../Components/card"
 import volunteer from "../../src/assets/images/volunteer.jpg"
 import { Header } from '../Components'
 import view from "../../src/assets/images/view.jpg"
-import studentHelp from "../../src/assets/images/studenthelp.jpg"
+import studentHelp from "../../src/assets/images/Studenthelp.jpg"
 
 const AboutUsPage = () => {
   return (
