@@ -8,9 +8,9 @@ import { useNavigate,Link } from "react-router-dom";
 
 const BecomeMember = () => {
    /// global context
-   const {showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm} = useGlobalContext();
+   const {showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm,volunteerRole, setVolunteerRole} = useGlobalContext();
     const [showOption, setShowOption] = useState(false);
-    const [volunteerRole, setVolunteerRole] = useState('');
+  
 
 
     //// handle handleVolunteerOnChange

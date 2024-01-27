@@ -10,6 +10,8 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const AppContext = ({ children }) => {
  ////////auth state
  const [auth,setAuth] = useState(getUserFromLocalStorage())
+ ///volunteer
+ const [volunteerRole, setVolunteerRole] = useState('');
 //////////////////////all state/////////////
 const [showRegistrationForm, setShowRegistrationForm] = useState(false);
 //// state to track if the user has registered so that he can log in
@@ -28,7 +30,7 @@ useEffect(()=>{
 },[auth])
 /////////////////////main return
   return (
-    <GlobalContext.Provider value={{showRegistrationForm, setShowRegistrationForm,showLoginForm,setShowLoginForm}}>
+    <GlobalContext.Provider value={{showRegistrationForm, volunteerRole, setVolunteerRole,setShowRegistrationForm,showLoginForm,setShowLoginForm,auth,setAuth}}>
       {children}
     </GlobalContext.Provider>
   );

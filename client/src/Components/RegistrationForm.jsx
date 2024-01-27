@@ -7,7 +7,7 @@ import { addUserToLocalStorage } from '../utils/localStorage';
 
 const RegistrationForm = () => {
     /// global context
-    const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm} = useGlobalContext();
+    const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm,volunteerRole, setVolunteerRole} = useGlobalContext();
 
     //// registration form data
     const [formData, setFormData,] = useState({
@@ -33,12 +33,38 @@ const RegistrationForm = () => {
       /// handle submit
       toast.success(`${formData?.name},Account successfully created`)
       console.log("final data",formData)
-      addUserToLocalStorage(formData);
+      const userData = {formData,volunteerRole}
+      addUserToLocalStorage( userData);
 
       /// close registration form
       setShowRegistrationForm(false)
       // if registered show login form
       setShowLoginForm(true)
+    }
+    let userNameComp = ""
+    //// determine user name
+    if(volunteerRole === "ngo")
+    {
+      userNameComp =  <div className='form-field' >
+
+      <label>Organization Name</label>
+      <input type="text" name="name" value={formData.name} onChange={handleFormDataChange}  id="" placeholder='Enter organization name' />
+          </div>
+    }
+    else if(volunteerRole === "individual")
+    {
+      userNameComp =  <div className='form-field' >
+
+      <label>Full Names</label>
+      <input type="text" name="name" value={formData.name} onChange={handleFormDataChange}  id="" placeholder='Enter your fulls name' />
+          </div>
+    }
+    else{
+      userNameComp =  <div className='form-field' >
+
+      <label>If other</label>
+      <input type="text" name="name" value={formData.name} onChange={handleFormDataChange}  id="" placeholder='Please specify here' />
+          </div>
     }
 
   return (
@@ -46,10 +72,7 @@ const RegistrationForm = () => {
             <form onSubmit={handleSubmit} >
             <button className='no-btn close-regi-form-btn '  onClick={()=>setShowRegistrationForm((prev)=>!prev)} > <i><IoCloseSharp/></i>  <span>Close</span>  </button>
                 {/* full names */}
-                <div className='form-field' >
-            <label>Full names</label>
-            <input type="text" name="name" value={formData.name} onChange={handleFormDataChange}  id="" placeholder='Enter your full names' />
-                </div>
+                {userNameComp}
             {/* email */}
             <div className='form-field' >
                 <label htmlFor="">Email</label>
