@@ -1,4 +1,4 @@
 base = "client"
 command = "npm run build"
-publish = "client/build"  
+publish = "client/dist"  
 functions = "client/netlify/functions"
