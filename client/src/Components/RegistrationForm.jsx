@@ -97,7 +97,7 @@ const Form = styled.form`
 `;
 
 const CloseButton = styled.button`
-  background-color: transparent;
+  background-color:white;
   color: var(--primary-color);
   font-size: 1.2em;
   font-weight: bold;
@@ -111,9 +111,7 @@ const CloseButton = styled.button`
   gap: 5px;
   position:relative;
 
-  &:hover {
-    color: #fff;
-  }
+
 `;
 
 const FormField = styled.div`
@@ -146,14 +144,11 @@ const SubmitButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   border: 1px solid var(--primary-color);
-  background-color: transparent;
+  background-color:var(--primary-color);
   color: white;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  &:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
+
 `;
 
 const CreateAccountText = styled.div`
