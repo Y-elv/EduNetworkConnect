@@ -30,32 +30,32 @@ const LoginForm = () => {
 
   return (
     <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        <CloseButton onClick={() => setShowLoginForm(false)}>
-          <IoCloseSharp />
-          <span>Close</span>
-        </CloseButton> 
+    <Form onSubmit={handleSubmit}>
+      <CloseButton onClick={() => setShowLoginForm(false)}>
+        <IoCloseSharp />
+        <span style={{ color: 'var(--primary-color)', marginLeft: '5px' }}>Close</span>
+      </CloseButton>
 
-        <CenteredFormFields>
-          <FormField>
-            <InputLabel>Email</InputLabel>
-            <InputField type="email" name="email" value={formData.email} onChange={handleFormDataChange} placeholder="Enter your email" />
-          </FormField>
+      <CenteredFormFields>
+        <FormField>
+          <InputLabel>Email</InputLabel>
+          <InputField type="email" name="email" value={formData.email} onChange={handleFormDataChange} placeholder="Enter your email" />
+        </FormField>
 
-          <FormField>
-            <InputLabel>Password</InputLabel>
-            <InputField type="password" name="password" value={formData.password} onChange={handleFormDataChange} placeholder="Enter password" />
-          </FormField>
-        </CenteredFormFields>
+        <FormField>
+          <InputLabel>Password</InputLabel>
+          <InputField type="password" name="password" value={formData.password} onChange={handleFormDataChange} placeholder="Enter password" />
+        </FormField>
+      </CenteredFormFields>
 
-        <SubmitContainer>
-          <SubmitButton type="submit">Login</SubmitButton>
-          <CreateAccountText>
-            Don't have an account? <CreateAccountButton>Create Account</CreateAccountButton>
-          </CreateAccountText>
-        </SubmitContainer>
-      </Form>
-    </FormContainer>
+      <SubmitContainer>
+        <SubmitButton type="submit">Login</SubmitButton>
+        <CreateAccountText>
+          Don't have an account? <CreateAccountButton>Create Account</CreateAccountButton>
+        </CreateAccountText>
+      </SubmitContainer>
+    </Form>
+  </FormContainer>
   );
 };
 
@@ -84,6 +84,7 @@ const Form = styled.form`
   background-color: var(--backgroundColor);
   padding: 5px;
   gap: 5px;
+  position: relative; /* Add this line */
 `;
 
 const CloseButton = styled.button`
@@ -99,7 +100,7 @@ const CloseButton = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
-  border:1px solid red;
+  
 
   &:hover {
     color: #fff;
