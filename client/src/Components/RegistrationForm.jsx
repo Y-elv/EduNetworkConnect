@@ -1,77 +1,172 @@
-import React ,{useState}from 'react'
+import React, { useState } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '../context';
-
+import styled from 'styled-components';
 
 const RegistrationForm = () => {
-    /// global context
-    const {showRegistrationForm, setShowRegistrationForm, showLoginForm,setShowLoginForm} = useGlobalContext();
+  const { showRegistrationForm, setShowRegistrationForm, setShowLoginForm } = useGlobalContext();
 
-    //// registration form data
-    const [formData, setFormData,] = useState({
-      name:"",
-      role:"",
-      email:"",
-      password:"",
-      location:""
+  const [formData, setFormData] = useState({
+    name: "",
+    role: "",
+    email: "",
+    password: "",
+    location: ""
   });
 
+  const handleFormDataChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    /// handle handleForm data change
-    const handleFormDataChange = (e) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success(`${formData?.name}, Account successfully created`);
+    console.log("final data", formData);
 
-    /// handle submit
-    const handleSubmit = (e)=>{
-      e.preventDefault()
-      /// handle submit
-      toast.success(`${formData?.name},Account successfully created`)
-      console.log("final data",formData)
-
-      /// close registration form
-      setShowRegistrationForm(false)
-      // if registered show login form
-      setShowLoginForm(true)
-    }
+    setShowRegistrationForm(false);
+    setShowLoginForm(true);
+  }
 
   return (
-    <div className='registration-form' >
-            <form onSubmit={handleSubmit} >
-            <button className='no-btn close-regi-form-btn '  onClick={()=>setShowRegistrationForm((prev)=>!prev)} > <i><IoCloseSharp/></i>  <span>Close</span>  </button>
-                {/* full names */}
-                <div className='form-field' >
-            <label>Full names</label>
-            <input type="text" name="name" value={formData.name} onChange={handleFormDataChange}  id="" placeholder='Enter your full names' />
-                </div>
-            {/* email */}
-            <div className='form-field' >
-                <label htmlFor="">Email</label>
-                <input type="email" name="email" value={formData.email} onChange={handleFormDataChange}  id="" placeholder='Enter your email' />
-            </div>
-               {/* Location */}
-               <div className='form-field' >
-                <label htmlFor="">Location</label>
-                <input type="text" name="location" value={formData.location} onChange={handleFormDataChange}  id="" placeholder='Enter your Location' />
-               </div>
-               {/* password */}
-               <div className='form-field' >
-                <label htmlFor="">Password</label>
-                <input type="password" name="password" value={formData.password} onChange={handleFormDataChange}  id="" placeholder='Enter password' />
-               </div>
-               
-                <div>
-                    <button className='yes-btn' type='submit'  >Register</button>
-                   <div>If Already have an account? <button className='yes-btn' >Login</button></div>
-                </div>
+    <FormContainer>
+      <Form onSubmit={handleSubmit}>
+         <CloseButton onClick={() => setShowRegistrationForm(false)}>
+          <IoCloseSharp />
+          <span style={{ color: 'var(--primary-color)', marginLeft: '5px' }}>Close</span>
+        </CloseButton>
 
-            </form>
-        </div>
-  )
+        <FormField>
+          <InputLabel>Full names:</InputLabel>
+          <InputField type="text" name="name" value={formData.name} onChange={handleFormDataChange} placeholder='Enter your full names' />
+        </FormField>
+
+        <FormField>
+          <InputLabel>Email:</InputLabel>
+          <InputField type="email" name="email" value={formData.email} onChange={handleFormDataChange} placeholder='Enter your email' />
+        </FormField>
+
+        <FormField>
+          <InputLabel>Location:</InputLabel>
+          <InputField type="text" name="location" value={formData.location} onChange={handleFormDataChange} placeholder='Enter your Location' />
+        </FormField>
+
+        <FormField>
+          <InputLabel>Password:</InputLabel>
+          <InputField type="password" name="password" value={formData.password} onChange={handleFormDataChange} placeholder='Enter password' />
+        </FormField>
+
+        <SubmitContainer>
+          <SubmitButton type='submit'>Register</SubmitButton>
+          <CreateAccountText>If Already have an account? <CreateAccountButton>Login</CreateAccountButton></CreateAccountText>
+        </SubmitContainer>
+      </Form>
+    </FormContainer>
+  );
 }
 
-export default RegistrationForm
+export default RegistrationForm;
+
+const FormContainer = styled.div`
+  background-color: #000000c5;
+  position: absolute;
+  top: 0;
+  height: 120vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+`;
+
+const Form = styled.form`
+  display: flex;
+  height: 60%;
+  width: 60%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-color);
+  background-color: var(--backgroundColor);
+  padding: 5px;
+  gap: 5px;
+  position: relative;
+`;
+
+const CloseButton = styled.button`
+  background-color:white;
+  color: var(--primary-color);
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: -320px;  // Adjusted the right position to 10px
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position:relative;
+
+
+`;
+
+const FormField = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const InputLabel = styled.label`
+  font-weight: 600;
+  font-size: 1em;
+`;
+
+const InputField = styled.input`
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+`;
+
+const SubmitContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SubmitButton = styled.button`
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  background-color:var(--primary-color);
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+
+`;
+
+const CreateAccountText = styled.div`
+  margin-top: 10px;
+  font-size: 1em;
+  font-weight: bold;
+`;
+
+const CreateAccountButton = styled.button`
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #fff;
+  }
+`;
